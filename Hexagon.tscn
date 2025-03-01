@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4fn0e18mdqib"]
+
+[ext_resource type="Script" path="res://Node2d.cs" id="1_hv02v"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hv02v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(12, 18, 14, 14, 94, 85, 122, -66)
+
+[node name="Line2D" type="Line2D" parent="."]
+default_color = Color(0, 0, 0, 1)

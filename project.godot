@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Scroocelo"
-run/main_scene="res://Hexagon.tscn"
+run/main_scene="res://scenes/Hexagon.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 

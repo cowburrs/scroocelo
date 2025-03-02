@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 public partial class Node2d : Node2D
 {
@@ -18,6 +19,12 @@ public partial class Node2d : Node2D
 			colArray[i] = new Vector2(0, Size).Rotated(Mathf.Pi / (6 / 2) * i);
 		}
 		collision.Polygon = colArray;
+
+		HexMap hex_map = new HexMap(3, 3);
+		hex_map.Block(4);
+		hex_map.PrintHexAdjMap();
+		hex_map.Update();
+		hex_map.PrintHexAdjMap();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

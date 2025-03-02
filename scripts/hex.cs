@@ -1,11 +1,13 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 
 public class HexMap
 {
+    private int m_verticies;
     private int m_cols;
     private int m_rows;
     private int[,] m_hex_adj_map;
@@ -149,18 +151,66 @@ public class HexMap
     {
         m_blocked.Add(tile);
     }
-    public HexMap(int rows, int max_width)
+    public HexMap(int rows, int columns)
     {
         m_rows = rows;
-        m_cols = max_width;
-        m_hex_adj_map = new int[rows * max_width, rows * max_width];
+        m_cols = columns;
+        m_hex_adj_map = new int[rows * columns, rows * columns];
         m_blocked = new List<int>();
+        m_verticies = rows * columns; 
         Connect();
+    }
+
+    public void Dijkstra(int[,] adj_mat, int source) 
+    {
+        PriorityQueue<int, int> pq = new PriorityQueue<int, int>();
+        int[] dist = new int[m_verticies]; 
+        int[] prev = new int[m_verticies]; 
+        bool[] visited = new bool[m_verticies];
+
+        for (int i = 0; i < m_verticies; i++)
+        {
+            visited[i] = false;
+            prev[i] = -1; 
+            dist[i] = int.MaxValue;
+        }
+
+        dist[source] = 0;
+        pq.Enqueue(source, 0);
+
+        while (pq.Count > 0)
+        {
+            int u = pq.Dequeue();
+            visited[u] = true;
+
+            for (int v = 0; v < m_verticies; v++)
+            {
+                if (!visited[v] && adj_mat[u, v] > 0)
+                {
+                    int d = dist[u] + adj_mat[u, v];
+                    if (d < dist[v])
+                    {
+                        prev[v] = u;
+                        dist[v] = d;
+                        pq.Enqueue(v, d);
+                    }
+                }
+            
+            }
+        }
+
+        string test = "";
+        for (int i = 0; i < m_verticies; i++)
+        {
+            test += dist[i] + " ";
+        }
+        Debug.Print(test);
     }
 
     public void Update()
     {
         Connect();
+        Dijkstra(m_hex_adj_map, 0);
     }
     
     public void PrintHexAdjMap()

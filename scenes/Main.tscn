@@ -1,22 +1,25 @@
-[gd_scene load_steps=7 format=4 uid="uid://dxoe66xrx3rlk"]
+[gd_scene load_steps=9 format=4 uid="uid://cpiuofucmpei5"]
 
-[ext_resource type="Texture2D" uid="uid://ce35qc1x3vrv5" path="res://sprites/Dirt_1.png" id="1_cgyww"]
-[ext_resource type="Texture2D" uid="uid://ckxx8ve76sfy" path="res://sprites/pixil-frame-0.png" id="2_qiy7e"]
+[ext_resource type="Script" uid="uid://c1fbb1pfjknjo" path="res://scripts/Main.cs" id="1_0bbpv"]
+[ext_resource type="Texture2D" uid="uid://ce35qc1x3vrv5" path="res://sprites/Dirt_1.png" id="1_rvslj"]
+[ext_resource type="Texture2D" uid="uid://ckxx8ve76sfy" path="res://sprites/pixil-frame-0.png" id="2_0bbpv"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qiy7e"]
-texture = ExtResource("1_cgyww")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
+texture = ExtResource("1_rvslj")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_cvfn6"]
+[sub_resource type="TileSet" id="TileSet_tefeu"]
 tile_size = Vector2i(32, 32)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_qiy7e")
+sources/0 = SubResource("TileSetAtlasSource_tbgi4")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_haxqh"]
-texture = ExtResource("2_qiy7e")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
+texture = ExtResource("2_0bbpv")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -49,20 +52,25 @@ texture_region_size = Vector2i(32, 32)
 1:2/0/terrains_peering_bit/bottom_side = 0
 1:2/0/terrains_peering_bit/top_side = 0
 
-[sub_resource type="TileSet" id="TileSet_8x8sn"]
+[sub_resource type="TileSet" id="TileSet_tipki"]
 tile_size = Vector2i(32, 32)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Brushes"
 terrain_set_0/terrain_0/color = Color(0.693767, 0.0880097, 0.312367, 1)
-sources/0 = SubResource("TileSetAtlasSource_haxqh")
+sources/0 = SubResource("TileSetAtlasSource_o6xl0")
 
-[node name="Tilemapstuff" type="Node2D"]
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0bbpv")
+
+[node name="Main Character Thingy" type="CharacterBody2D" parent="."]
+
+[node name="Something for the moment" type="CollisionShape2D" parent="Main Character Thingy"]
+shape = SubResource("RectangleShape2D_jyhfs")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-visible = false
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAGAP7/AAAAAAAAAAAGAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAFAP7/AAAAAAAAAAAEAP7/AAAAAAAAAAAEAP//AAAAAAAAAAADAP//AAAAAAAAAAAFAPz/AAAAAAAAAAAEAPz/AAAAAAAAAAADAPz/AAAAAAAAAAADAP3/AAAAAAAAAAACAP3/AAAAAAAAAAAGAPz/AAAAAAAAAAAEAP3/AAAAAAAAAAD7/wAAAAAAAAAAAAD6/wAAAAAAAAAAAAD5/wAAAAAAAAAAAAD5////AAAAAAAAAAD6////AAAAAAAAAAD7/wEAAAAAAAAAAAD7////AAAAAAAAAAD6//7/AAAAAAAAAAD6//3/AAAAAAAAAAD5//3/AAAAAAAAAAD5//z/AAAAAAAAAAD5//7/AAAAAAAAAAD4//z/AAAAAAAAAAD4//v/AAAAAAAAAAD4//r/AAAAAAAAAAD4//n/AAAAAAAAAAD5//v/AAAAAAAAAAD5//r/AAAAAAAAAAA=")
-tile_set = SubResource("TileSet_cvfn6")
+tile_set = SubResource("TileSet_tefeu")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAP3/AAAAAAAAAAAAAP7/AAABAAEAAAAAAP//AAABAAAAAAAAAAAAAAABAAEAAAACAAAAAAAAAAAAAAADAAAAAAABAAEAAAADAP//AAAAAAAAAAADAP7/AAAAAAEAAAADAP3/AAABAAAAAAACAP3/AAAAAAIAAAABAP3/AAAAAAIAAAD///7/AAAAAAIAAAD+//7/AAAAAAAAAAD+////AAAAAAEAAAD/////AAAAAAIAAAAEAP7/AAAAAAIAAAAFAP7/AAABAAAAAAAEAP//AAAAAAIAAAAFAP//AAABAAEAAAD//wAAAAAAAAAAAAD//wEAAAAAAAEAAAAAAAEAAAAAAAIAAAABAAEAAAAAAAIAAAACAAEAAAABAAEAAAA=")
-tile_set = SubResource("TileSet_8x8sn")
+tile_set = SubResource("TileSet_tipki")

@@ -7,6 +7,8 @@ public partial class Main : Node2D
 	public override void _Ready()
 	{
 		GD.Print("Hellow");
+		Vector2 screensize = (Vector2)GetViewportRect().Size;
+		Position = new Vector2(screensize.X/2, screensize.Y/2);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

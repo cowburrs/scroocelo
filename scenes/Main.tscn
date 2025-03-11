@@ -69,7 +69,6 @@ terrain_set_0/terrain_0/color = Color(0.693767, 0.0880097, 0.312367, 1)
 sources/0 = SubResource("TileSetAtlasSource_o6xl0")
 
 [node name="Main" type="Node2D"]
-position = Vector2(259, 227)
 script = ExtResource("1_0bbpv")
 
 [node name="Main Character Thingy" type="CharacterBody2D" parent="."]

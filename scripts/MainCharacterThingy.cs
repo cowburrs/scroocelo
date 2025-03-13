@@ -7,7 +7,8 @@ public partial class MainCharacterThingy : CharacterBody2D
 	public const float SpeedIncrement = 1000.0f;
 	public const float SlowIncrement = 500.0f; 
 	public const float JumpVelocity = -400.0f;
-	public const float dashVelocity = 500.0f;
+	[Export]
+	public float dashVelocity;
 
 	public const float MaxVelocityX = 1000.0f ;
 	public override void _PhysicsProcess(double delta)
@@ -61,8 +62,7 @@ public partial class MainCharacterThingy : CharacterBody2D
 		{
 			dashTime.Start();
 		}
-		GD.Print("dashdowntime = " + dashCooldownTime.TimeLeft);
-		GD.Print("dashtime = " + dashTime.TimeLeft);
+		GD.Print(dashVelocity);
 
 		Velocity = velocity;
 		MoveAndSlide();

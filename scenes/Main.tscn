@@ -73,6 +73,7 @@ script = ExtResource("1_0bbpv")
 
 [node name="Main Character Thingy" type="CharacterBody2D" parent="."]
 script = ExtResource("2_vcsgt")
+dashVelocity = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Main Character Thingy"]
 position = Vector2(-22.75, -52.75)

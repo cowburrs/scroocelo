@@ -40,8 +40,34 @@ public partial class MainCharacterThingy : CharacterBody2D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, SlowIncrement * (float)delta);
 		}
+		Timer dashTime = GetNode<Timer>("dashTimer");
+		Timer dashCooldownTime = GetNode<Timer>("dashCooldownTimer");
+		if (Input.IsActionJustPressed("right") && dashTime.TimeLeft > 0){
+			velocity.X += 500;
+			dashCooldownTime.Start();
+			dashTime.Stop();
+		}
+		if (Input.IsActionJustPressed("right") && dashTime.TimeLeft == 0 && dashCooldownTime.TimeLeft == 0)
+		{
+			dashTime.Start();
+		}
+		if (Input.IsActionJustPressed("left") && dashTime.TimeLeft > 0){
+			velocity.X -= 500;
+			dashCooldownTime.Start();
+			dashTime.Stop();
+		}
+		if (Input.IsActionJustPressed("left") && dashTime.TimeLeft == 0 && dashCooldownTime.TimeLeft == 0)
+		{
+			dashTime.Start();
+		}
+		GD.Print("dashdowntime = " + dashCooldownTime.TimeLeft);
+		GD.Print("dashtime = " + dashTime.TimeLeft);
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+	private void onDashTimerTimeout()
+	{
+		GD.Print("Dash Timer Timeout");
 	}
 }

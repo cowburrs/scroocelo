@@ -7,6 +7,7 @@ public partial class MainCharacterThingy : CharacterBody2D
 	public const float SpeedIncrement = 1000.0f;
 	public const float SlowIncrement = 500.0f; 
 	public const float JumpVelocity = -400.0f;
+	public const float dashVelocity = 500.0f;
 
 	public const float MaxVelocityX = 1000.0f ;
 	public override void _PhysicsProcess(double delta)
@@ -43,7 +44,7 @@ public partial class MainCharacterThingy : CharacterBody2D
 		Timer dashTime = GetNode<Timer>("dashTimer");
 		Timer dashCooldownTime = GetNode<Timer>("dashCooldownTimer");
 		if (Input.IsActionJustPressed("right") && dashTime.TimeLeft > 0){
-			velocity.X += 500;
+			velocity.X += dashVelocity;
 			dashCooldownTime.Start();
 			dashTime.Stop();
 		}
@@ -52,7 +53,7 @@ public partial class MainCharacterThingy : CharacterBody2D
 			dashTime.Start();
 		}
 		if (Input.IsActionJustPressed("left") && dashTime.TimeLeft > 0){
-			velocity.X -= 500;
+			velocity.X -= dashVelocity;
 			dashCooldownTime.Start();
 			dashTime.Stop();
 		}

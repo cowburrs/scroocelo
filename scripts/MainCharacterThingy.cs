@@ -62,7 +62,6 @@ public partial class MainCharacterThingy : CharacterBody2D
 		{
 			dashTime.Start();
 		}
-		GD.Print(dashVelocity);
 
 		Velocity = velocity;
 		MoveAndSlide();

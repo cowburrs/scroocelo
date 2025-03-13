@@ -8,7 +8,7 @@ public partial class MainCharacterThingy : CharacterBody2D
 	public const float SlowIncrement = 500.0f; 
 	public const float JumpVelocity = -400.0f;
 	[Export]
-	public float dashVelocity;
+	private float dashVelocity;
 
 	public const float MaxVelocityX = 1000.0f ;
 	public override void _PhysicsProcess(double delta)
@@ -65,9 +65,5 @@ public partial class MainCharacterThingy : CharacterBody2D
 
 		Velocity = velocity;
 		MoveAndSlide();
-	}
-	private void onDashTimerTimeout()
-	{
-		GD.Print("Dash Timer Timeout");
 	}
 }

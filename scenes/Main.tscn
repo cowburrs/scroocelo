@@ -87,7 +87,6 @@ shape = SubResource("RectangleShape2D_jyhfs")
 [node name="dashTimer" type="Timer" parent="Main Character Thingy"]
 wait_time = 0.4
 one_shot = true
-autostart = true
 
 [node name="dashCooldownTimer" type="Timer" parent="Main Character Thingy"]
 one_shot = true
@@ -101,5 +100,3 @@ tile_set = SubResource("TileSet_tefeu")
 visible = false
 tile_map_data = PackedByteArray("AAAAAP3/AAAAAAAAAAAAAP7/AAABAAEAAAAAAP//AAABAAAAAAAAAAAAAAABAAEAAAACAAAAAAAAAAAAAAADAAAAAAABAAEAAAADAP//AAAAAAAAAAADAP7/AAAAAAEAAAADAP3/AAABAAAAAAACAP3/AAAAAAIAAAABAP3/AAAAAAIAAAD///7/AAAAAAIAAAD+//7/AAABAAEAAAD+////AAAAAAEAAAD/////AAAAAAIAAAAEAP7/AAAAAAIAAAAFAP7/AAABAAAAAAAEAP//AAAAAAIAAAAFAP//AAABAAEAAAD//wAAAAAAAAAAAAD//wEAAAAAAAEAAAAAAAEAAAAAAAIAAAABAAEAAAAAAAIAAAACAAEAAAABAAEAAAD9//7/AAABAAEAAAA=")
 tile_set = SubResource("TileSet_tipki")
-
-[connection signal="timeout" from="Main Character Thingy/dashTimer" to="Main Character Thingy" method="onDashTimerTimeout"]

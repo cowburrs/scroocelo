@@ -4,9 +4,12 @@ using System.ComponentModel.DataAnnotations;
 
 public partial class MainCharacterThingy : CharacterBody2D
 {
-	public const float SpeedIncrement = 1000.0f;
-	public const float SlowIncrement = 500.0f; 
-	public const float JumpVelocity = -400.0f;
+	[Export]
+	public float SpeedIncrement;
+	[Export]
+	public float SlowIncrement; 
+	[Export]
+	public float JumpVelocity;
 	[Export]
 	private float dashVelocity;
 

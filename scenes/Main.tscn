@@ -1,15 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://cpiuofucmpei5"]
+[gd_scene load_steps=9 format=4 uid="uid://cpiuofucmpei5"]
 
 [ext_resource type="Script" uid="uid://c1fbb1pfjknjo" path="res://scripts/Main.cs" id="1_0bbpv"]
 [ext_resource type="Texture2D" uid="uid://ce35qc1x3vrv5" path="res://sprites/Dirt_1.png" id="1_rvslj"]
 [ext_resource type="Texture2D" uid="uid://ckxx8ve76sfy" path="res://sprites/pixil-frame-0.png" id="2_0bbpv"]
-[ext_resource type="Texture2D" uid="uid://qpi8lsfgcanw" path="res://icon.svg" id="2_rarhs"]
-[ext_resource type="Script" uid="uid://bugvrha8igh7c" path="res://scripts/MainCharacterThingy.cs" id="2_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://byouq7xmdy58i" path="res://scenes/main_character_thingy.tscn" id="2_rarhs"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
-size = Vector2(27, 26)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rarhs"]
 texture = ExtResource("1_rvslj")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -25,7 +21,7 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_tbgi4")
+sources/0 = SubResource("TileSetAtlasSource_rarhs")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 texture = ExtResource("2_0bbpv")
@@ -71,29 +67,7 @@ sources/0 = SubResource("TileSetAtlasSource_o6xl0")
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0bbpv")
 
-[node name="Main Character Thingy" type="CharacterBody2D" parent="."]
-script = ExtResource("2_vcsgt")
-SpeedIncrement = 1000.0
-SlowIncrement = 3000.0
-JumpVelocity = -400.0
-dashVelocity = 250.0
-MaxVelocityX = 500.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Main Character Thingy"]
-scale = Vector2(0.230469, 0.214844)
-texture = ExtResource("2_rarhs")
-
-[node name="Something for the moment" type="CollisionShape2D" parent="Main Character Thingy"]
-shape = SubResource("RectangleShape2D_jyhfs")
-
-[node name="dashTimer" type="Timer" parent="Main Character Thingy"]
-wait_time = 0.4
-one_shot = true
-
-[node name="dashCooldownTimer" type="Timer" parent="Main Character Thingy"]
-one_shot = true
-
-[node name="staminaBar" type="Line2D" parent="Main Character Thingy"]
+[node name="Main Character Thingy" parent="." instance=ExtResource("2_rarhs")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(2, 35)

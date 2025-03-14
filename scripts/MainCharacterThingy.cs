@@ -30,12 +30,12 @@ public partial class MainCharacterThingy : CharacterBody2D
 		{
 			velocity.Y = JumpVelocity;
 		}
-		if (Input.IsActionJustPressed("jump") && (IsOnWallOnly()) && Input.IsActionPressed("right"))
+		if (Input.IsActionJustPressed("jump") && (IsOnWallOnly()) && Input.IsActionPressed("right") && !Input.IsActionPressed("left"))
 		{
 			velocity.Y = JumpVelocity;
 			velocity.X += JumpVelocity;
 		}
-		if (Input.IsActionJustPressed("jump") && (IsOnWallOnly()) && Input.IsActionPressed("left"))
+		if (Input.IsActionJustPressed("jump") && (IsOnWallOnly()) && Input.IsActionPressed("left") && !Input.IsActionPressed("right"))
 		{
 			velocity.Y = JumpVelocity;
 			velocity.X -= JumpVelocity;

@@ -74,7 +74,7 @@ script = ExtResource("1_0bbpv")
 [node name="Main Character Thingy" type="CharacterBody2D" parent="."]
 script = ExtResource("2_vcsgt")
 SpeedIncrement = 1000.0
-SlowIncrement = 1000.0
+SlowIncrement = 3000.0
 JumpVelocity = -400.0
 dashVelocity = 250.0
 MaxVelocityX = 500.0

@@ -75,6 +75,11 @@ public partial class MainCharacterThingy : CharacterBody2D
 		{
 			dashTime.Start();
 		}
+		Line2D staminaBar = GetNode<Line2D>("staminaBar");
+		staminaBar.ClearPoints();
+		staminaBar.AddPoint(new Vector2(20, 20));
+		staminaBar.AddPoint(new Vector2(20, -20+40 * (float)(dashCooldownTime.TimeLeft/dashCooldownTime.WaitTime)));
+		// instead of changing the point i fucking delete it and add it back very bad implementation by me lol
 
 		Velocity = velocity;
 		MoveAndSlide();

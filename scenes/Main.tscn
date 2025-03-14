@@ -80,12 +80,10 @@ dashVelocity = 250.0
 MaxVelocityX = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Main Character Thingy"]
-position = Vector2(-22.75, -52.75)
 scale = Vector2(0.230469, 0.214844)
 texture = ExtResource("2_rarhs")
 
 [node name="Something for the moment" type="CollisionShape2D" parent="Main Character Thingy"]
-position = Vector2(-22.5, -53)
 shape = SubResource("RectangleShape2D_jyhfs")
 
 [node name="dashTimer" type="Timer" parent="Main Character Thingy"]
@@ -94,6 +92,8 @@ one_shot = true
 
 [node name="dashCooldownTimer" type="Timer" parent="Main Character Thingy"]
 one_shot = true
+
+[node name="staminaBar" type="Line2D" parent="Main Character Thingy"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(2, 35)

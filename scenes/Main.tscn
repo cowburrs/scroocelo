@@ -77,6 +77,7 @@ SpeedIncrement = 1000.0
 SlowIncrement = 1000.0
 JumpVelocity = -400.0
 dashVelocity = 250.0
+MaxVelocityX = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Main Character Thingy"]
 position = Vector2(-22.75, -52.75)

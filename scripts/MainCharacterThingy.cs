@@ -12,8 +12,9 @@ public partial class MainCharacterThingy : CharacterBody2D
 	public float JumpVelocity;
 	[Export]
 	private float dashVelocity;
+	[Export]
+	public float MaxVelocityX;
 
-	public const float MaxVelocityX = 1000.0f ;
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;

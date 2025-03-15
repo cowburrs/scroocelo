@@ -53,7 +53,10 @@ public partial class MainCharacterThingy : CharacterBody2D
 		}
 		else
 		{
+			if (IsOnFloorOnly())
+			{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, SlowIncrement * (float)delta);
+			}
 		}
 		Timer dashTime = GetNode<Timer>("dashTimer");
 		Timer dashCooldownTime = GetNode<Timer>("dashCooldownTimer");

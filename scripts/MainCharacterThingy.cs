@@ -82,6 +82,9 @@ public partial class MainCharacterThingy : CharacterBody2D
 		// instead of changing the point i fucking delete it and add it back very bad implementation by me lol
 
 		Velocity = velocity;
+		if (Input.IsActionPressed("sprint")){
+			MoveAndSlide();
+		}
 		MoveAndSlide();
 	}
 }

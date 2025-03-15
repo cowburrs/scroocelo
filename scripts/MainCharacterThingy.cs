@@ -14,6 +14,8 @@ public partial class MainCharacterThingy : CharacterBody2D
 	private float dashVelocity;
 	[Export]
 	public float MaxVelocityX;
+	[Export]
+	public float SlowAlwaysIncrement;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -89,5 +91,8 @@ public partial class MainCharacterThingy : CharacterBody2D
 			MoveAndSlide();
 		}
 		MoveAndSlide();
+		if (Input.IsActionPressed("shoot")){
+			
+		}
 	}
 }

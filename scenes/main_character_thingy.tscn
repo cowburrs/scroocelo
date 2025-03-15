@@ -29,3 +29,4 @@ one_shot = true
 one_shot = true
 
 [node name="staminaBar" type="Line2D" parent="."]
+default_color = Color(0.84956, 3.29696e-06, 1.54018e-06, 1)

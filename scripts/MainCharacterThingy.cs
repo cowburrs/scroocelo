@@ -48,7 +48,7 @@ public partial class MainCharacterThingy : CharacterBody2D
 		if (direction != Vector2.Zero)
 		{
 			float ImpulseX = direction.X * SpeedIncrement * (float)delta; 
-			if (velocity.X + ImpulseX < MaxVelocityX)
+			if (velocity.X + ImpulseX < MaxVelocityX) // this bugs the game wall jump. ??? why though I don't understand. do we has to scrap this shit
 			{
 				velocity.X += ImpulseX;
 			}

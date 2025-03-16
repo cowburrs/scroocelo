@@ -14,8 +14,6 @@ public partial class MainCharacterThingy : CharacterBody2D
 	private float dashVelocity;
 	[Export]
 	public float MaxVelocityX;
-	[Export]
-	public float SlowAlwaysIncrement;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -32,12 +30,12 @@ public partial class MainCharacterThingy : CharacterBody2D
 		{
 			velocity.Y = JumpVelocity;
 		}
-		if (Input.IsActionJustPressed("jump") && (IsOnWallOnly()) && Input.IsActionPressed("right") && !Input.IsActionPressed("left"))
+		else if (Input.IsActionJustPressed("jump") && (IsOnWallOnly()) && Input.IsActionPressed("right") && !Input.IsActionPressed("left"))
 		{
 			velocity.Y = JumpVelocity;
 			velocity.X += JumpVelocity;
 		}
-		if (Input.IsActionJustPressed("jump") && (IsOnWallOnly()) && Input.IsActionPressed("left") && !Input.IsActionPressed("right"))
+		else if (Input.IsActionJustPressed("jump") && (IsOnWallOnly()) && Input.IsActionPressed("left") && !Input.IsActionPressed("right"))
 		{
 			velocity.Y = JumpVelocity;
 			velocity.X -= JumpVelocity;
@@ -48,18 +46,20 @@ public partial class MainCharacterThingy : CharacterBody2D
 		if (direction != Vector2.Zero)
 		{
 			float ImpulseX = direction.X * SpeedIncrement * (float)delta; 
-			if (velocity.X + ImpulseX < MaxVelocityX) // this bugs the game wall jump. ??? why though I don't understand. do we has to scrap this shit
+			if (Math.Abs(velocity.X + ImpulseX) < MaxVelocityX) // this bugs the game wall jump. ??? why though I don't understand. do we has to scrap this shit
 			{
 				velocity.X += ImpulseX;
 			}
-		}
-		else
-		{
-			if (IsOnFloorOnly())
+			else if (IsOnFloorOnly()) 
 			{
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, SlowIncrement * (float)delta);
 			}
 		}
+		else if (IsOnFloorOnly())
+		{
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, SlowIncrement * (float)delta);
+		}
+
 		Timer dashTime = GetNode<Timer>("dashTimer");
 		Timer dashCooldownTime = GetNode<Timer>("dashCooldownTimer");
 		if (Input.IsActionJustPressed("right") && dashTime.TimeLeft > 0){
@@ -87,13 +87,6 @@ public partial class MainCharacterThingy : CharacterBody2D
 		// instead of changing the point i fucking delete it and add it back very bad implementation by me lol
 
 		Velocity = velocity;
-		if (Input.IsActionPressed("sprint")){
-			MoveAndSlide();
-		}
-		if (Mathf.Abs(Velocity.X) > SlowAlwaysIncrement){
-			Velocity = new Vector2(Velocity.X - ((SlowAlwaysIncrement * (float)delta) * (Velocity.X / Mathf.Abs(Velocity.X))), Velocity.Y);
-		}
-		randomVar = Velocity.X;
 		MoveAndSlide();
 		if (Input.IsActionPressed("shoot")){ 
 		}

@@ -57,7 +57,7 @@ public partial class MainCharacterThingy : CharacterBody2D
 		{
 			if (IsOnFloorOnly())
 			{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, SlowIncrement * (float)delta);
+				velocity.X = Mathf.MoveToward(Velocity.X, 0, SlowIncrement * (float)delta);
 			}
 		}
 		Timer dashTime = GetNode<Timer>("dashTimer");
@@ -90,9 +90,10 @@ public partial class MainCharacterThingy : CharacterBody2D
 		if (Input.IsActionPressed("sprint")){
 			MoveAndSlide();
 		}
+		//Velocity = new Vector2((Mathf.MoveToward(Velocity.X, 0, SlowIncrement * (float)delta)), Velocity.Y);
+		GD.Print(MathF.MoveToward(Velocity.X, 0, SlowIncrement * (float)delta));
 		MoveAndSlide();
-		if (Input.IsActionPressed("shoot")){
-			
+		if (Input.IsActionPressed("shoot")){ 
 		}
 	}
 }

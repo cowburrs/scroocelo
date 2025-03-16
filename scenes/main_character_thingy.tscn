@@ -13,6 +13,7 @@ SlowIncrement = 3000.0
 JumpVelocity = -400.0
 dashVelocity = 250.0
 MaxVelocityX = 500.0
+SlowAlwaysIncrement = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.230469, 0.214844)

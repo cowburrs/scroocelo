@@ -12,8 +12,8 @@ SpeedIncrement = 1000.0
 SlowIncrement = 3000.0
 JumpVelocity = -400.0
 dashVelocity = 250.0
-MaxVelocityX = 500.0
-SlowAlwaysIncrement = 1.0
+MaxVelocityX = 350.0
+SlowAlwaysIncrement = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.230469, 0.214844)
@@ -31,3 +31,9 @@ one_shot = true
 
 [node name="staminaBar" type="Line2D" parent="."]
 default_color = Color(0.84956, 3.29696e-06, 1.54018e-06, 1)
+
+[node name="debugTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="debugTimer" to="." method="_on_debug_timer_timeout"]

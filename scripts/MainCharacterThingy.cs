@@ -90,10 +90,18 @@ public partial class MainCharacterThingy : CharacterBody2D
 		if (Input.IsActionPressed("sprint")){
 			MoveAndSlide();
 		}
-		//Velocity = new Vector2((Mathf.MoveToward(Velocity.X, 0, SlowIncrement * (float)delta)), Velocity.Y);
-		GD.Print(MathF.MoveToward(Velocity.X, 0, SlowIncrement * (float)delta));
+		if (Mathf.Abs(Velocity.X) > SlowAlwaysIncrement){
+			Velocity = new Vector2(Velocity.X - ((SlowAlwaysIncrement * (float)delta) * (Velocity.X / Mathf.Abs(Velocity.X))), Velocity.Y);
+		}
+		randomVar = Velocity.X;
 		MoveAndSlide();
 		if (Input.IsActionPressed("shoot")){ 
 		}
+	}
+	public float randomVar;
+	private void _on_debug_timer_timeout()
+	{
+		GD.Print("Debug Happaned");	
+		GD.Print(randomVar);	
 	}
 }

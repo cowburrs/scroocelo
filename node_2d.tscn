@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbgxe50us3j5q"]
+[gd_scene load_steps=3 format=3 uid="uid://dbgxe50us3j5q"]
 
 [ext_resource type="Texture2D" uid="uid://b8mmolt6pl858" path="res://sprites/bullet.png" id="1_wtcfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
+size = Vector2(20, 10)
 
 [node name="Node2D" type="Node2D"]
 
@@ -10,3 +13,4 @@
 texture = ExtResource("1_wtcfe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_wtcfe")

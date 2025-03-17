@@ -1,1 +1,11 @@
 Added this so we could make commits without programming. cause planning is important
+
+
+Ok we will be using a 3 step loop to create.
+
+Destructive Create
+	Features above all, form follows function, function at all costs
+Creative Create
+	Create everything necessary for all the working ideas. SFX, Sprites, Tools
+Polish
+	Refactor, Make it efficient, readable and scalable. Turn research into results

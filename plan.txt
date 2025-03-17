@@ -9,3 +9,7 @@ Creative Create
 	Create everything necessary for all the working ideas. SFX, Sprites, Tools
 Polish
 	Refactor, Make it efficient, readable and scalable. Turn research into results
+
+
+
+I will have it in the read me what phase we're one

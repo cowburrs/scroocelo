@@ -24,7 +24,19 @@ public partial class MainCharacterThingy : CharacterBody2D
 		{
 			velocity += GetGravity() * (float)delta;
 		}
-
+		Timer buffer = GetNode<Timer>("bufferTimer");
+		if (Input.IsActionJustPressed("jump") && !IsOnFloor() && buffer.TimeLeft == 0)
+		{
+			buffer.Start();
+		}
+		if (buffer.TimeLeft > 0 && IsOnFloor())
+		{
+			Input.ActionRelease("jump");
+			Input.ActionPress("jump");
+			Input.ActionRelease("jump");
+			buffer.Stop();
+		}
+		GD.Print(buffer.TimeLeft);
 		// Handle Jump.
 		if (Input.IsActionJustPressed("jump") && (IsOnFloor()))
 		{
@@ -90,11 +102,16 @@ public partial class MainCharacterThingy : CharacterBody2D
 		MoveAndSlide();
 		if (Input.IsActionPressed("shoot")){ 
 		}
+
 	}
 	public float randomVar;
 	private void _on_debug_timer_timeout()
 	{
-		GD.Print("Debug Happaned");	
-		GD.Print(randomVar);	
+		//GD.Print("Debug Happaned");	
+		//GD.Print(GetNode<Timer>("bufferTimer").TimeLeft);	
+	}
+	private void onBufferTimerTimeout()
+	{
+		//GD.Print("Buffer Timer Happened");
 	}
 }

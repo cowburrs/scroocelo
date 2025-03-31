@@ -15,6 +15,7 @@ public partial class MainCharacterThingy : CharacterBody2D
 	private float dashVelocity;
 	[Export]
 	public float MaxVelocityX;
+	private Vector2 cameraVelocity = new Vector2(0, 0);
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -105,7 +106,24 @@ public partial class MainCharacterThingy : CharacterBody2D
 	public override void _Process(double delta)
 	{
 		MoveAndSlide();
+		Camera2D camera = GetNode<Camera2D>("Node/Camera2D");
+		cameraVelocity += (GlobalPosition - camera.Position)/1000;
+		cameraVelocity = cameraVelocity.MoveToward(Vector2.Zero, 0.1f);
+		camera.Position += cameraVelocity;
+		if ((GlobalPosition.Length() - camera.Position.Length()) > 100)
+		{
+			GD.Print("Camera is too far from the player");
+			DateTime now = DateTime.Now;
+			GD.Print(now);
+		}
+		//camera.Position = GlobalPosition;
 	}
+    public override void _Ready()
+    {
+        Camera2D camera = GetNode<Camera2D>("Node/Camera2D");
+		camera.Position = GetViewportRect().Size / 2;
+    }
+	
 	public float randomVar;
 	private void _on_debug_timer_timeout()
 	{

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 
 public partial class MainCharacterThingy : CharacterBody2D
 {
@@ -36,7 +37,6 @@ public partial class MainCharacterThingy : CharacterBody2D
 			Input.ActionRelease("jump");
 			buffer.Stop();
 		}
-		GD.Print(buffer.TimeLeft);
 		// Handle Jump.
 		if (Input.IsActionJustPressed("jump") && (IsOnFloor()))
 		{
@@ -99,10 +99,12 @@ public partial class MainCharacterThingy : CharacterBody2D
 		// instead of changing the point i fucking delete it and add it back very bad implementation by me lol
 
 		Velocity = velocity;
-		MoveAndSlide();
 		if (Input.IsActionPressed("shoot")){ 
 		}
-
+	}
+	public override void _Process(double delta)
+	{
+		MoveAndSlide();
 	}
 	public float randomVar;
 	private void _on_debug_timer_timeout()

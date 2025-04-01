@@ -110,11 +110,13 @@ public partial class MainCharacterThingy : CharacterBody2D
 		cameraVelocity += (GlobalPosition - camera.Position)/1000;
 		cameraVelocity = cameraVelocity.MoveToward(Vector2.Zero, 0.1f);
 		camera.Position += cameraVelocity;
-		if ((GlobalPosition.Length() - camera.Position.Length()) > 300)
+		if ((GlobalPosition - camera.Position).Length() > 300)
 		{
 			GD.Print("Camera is too far from the player");
 			DateTime now = DateTime.Now;
 			GD.Print(now);
+			camera.Position = GlobalPosition;
+			cameraVelocity = Velocity;
 		}
 		//camera.Position = GlobalPosition;
 	}

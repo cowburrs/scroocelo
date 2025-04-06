@@ -32,7 +32,7 @@ one_shot = true
 default_color = Color(0.84956, 3.29696e-06, 1.54018e-06, 1)
 
 [node name="debugTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 autostart = true
 
 [node name="bufferTimer" type="Timer" parent="."]
@@ -43,6 +43,15 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="Node"]
 position_smoothing_enabled = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Node/Camera2D"]
+offset_left = -19.0
+offset_top = -85.0
+offset_right = 21.0
+offset_bottom = -45.0
+text = "Shit Doesn't Work"
+fit_content = true
+scroll_active = false
 
 [connection signal="timeout" from="debugTimer" to="." method="_on_debug_timer_timeout"]
 [connection signal="timeout" from="bufferTimer" to="." method="onBufferTimerTimeout"]

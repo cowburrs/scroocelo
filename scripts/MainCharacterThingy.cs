@@ -134,7 +134,7 @@ public partial class MainCharacterThingy : CharacterBody2D
 		//GD.Print(GetNode<Timer>("bufferTimer").TimeLeft);	
 		RichTextLabel fpsLabel = GetNode<RichTextLabel>("Node/Camera2D/RichTextLabel");
 		int textInt = int.Parse(fpsLabel.Text);
-		fpsLabel.Text = Mathf.Round((Velocity.Length()+textInt)/2).ToString(); // I need to make an average so that the shit doesn't constant perma change cause the perma change is kinda ass
+		fpsLabel.Text = Mathf.Round((Velocity.Length()*2+textInt)/3).ToString(); // I need to make an average so that the shit doesn't constant perma change cause the perma change is kinda ass
 	}
 	private void onBufferTimerTimeout()
 	{

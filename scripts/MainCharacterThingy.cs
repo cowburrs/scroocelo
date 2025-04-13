@@ -120,6 +120,7 @@ public partial class MainCharacterThingy : CharacterBody2D
 			//cameraVelocity = Velocity;
 		}
 		//camera.Position = GlobalPosition;
+		GD.Print(IsOnWall());
 	}
     public override void _Ready()
     {
@@ -130,11 +131,17 @@ public partial class MainCharacterThingy : CharacterBody2D
 	public float randomVar;
 	private void _on_debug_timer_timeout()
 	{
-		//GD.Print("Debug Happaned");	
+		GD.Print("Debug Happaned");	
 		//GD.Print(GetNode<Timer>("bufferTimer").TimeLeft);	
 		RichTextLabel fpsLabel = GetNode<RichTextLabel>("Node/Camera2D/RichTextLabel");
 		int textInt = int.Parse(fpsLabel.Text);
 		fpsLabel.Text = Mathf.Round((Velocity.Length()*2+textInt)/3).ToString(); // I need to make an average so that the shit doesn't constant perma change cause the perma change is kinda ass
+		if (IsOnWall() == true) {
+			GD.Print("Is on wall");
+		}
+		if (IsOnWallOnly() == true) {
+			GD.Print("Is on wall only");
+		}
 	}
 	private void onBufferTimerTimeout()
 	{

@@ -33,7 +33,6 @@ default_color = Color(0.84956, 3.29696e-06, 1.54018e-06, 1)
 
 [node name="debugTimer" type="Timer" parent="."]
 wait_time = 0.1
-autostart = true
 
 [node name="bufferTimer" type="Timer" parent="."]
 wait_time = 0.1

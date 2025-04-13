@@ -11,5 +11,9 @@ public partial class LevelOne : Node2D
 
     public override void _Process(double delta)
     {
+		if (Input.IsActionJustPressed("restart")) // restart the thingy mabobby
+		{
+			GetTree().ReloadCurrentScene();
+		}
     }
 }

@@ -7,6 +7,7 @@
 size = Vector2(27, 26)
 
 [node name="Main Character Thingy" type="CharacterBody2D"]
+physics_interpolation_mode = 1
 script = ExtResource("1_j37c2")
 SpeedIncrement = 1000.0
 SlowIncrement = 3000.0
@@ -18,7 +19,15 @@ MaxVelocityX = 350.0
 scale = Vector2(0.230469, 0.214844)
 texture = ExtResource("2_x1s6t")
 
+[node name="Node" type="Node" parent="Sprite2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Node"]
+visible = false
+scale = Vector2(0.230469, 0.214844)
+texture = ExtResource("2_x1s6t")
+
 [node name="Something for the moment" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_jyhfs")
 
 [node name="dashTimer" type="Timer" parent="."]

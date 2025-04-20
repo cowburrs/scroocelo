@@ -121,11 +121,14 @@ public partial class MainCharacterThingy : CharacterBody2D
 		}
 		//camera.Position = GlobalPosition;
 		GD.Print(IsOnWall());
+		// Sprite2D sprite = GetNode<Sprite2D>("Sprite2D/Node/Sprite2D");
+		// GD.Print(sprite);
+		// sprite.Position += (GlobalPosition - sprite.Position)/(2 * (1/(float)delta));
 	}
     public override void _Ready()
     {
         Camera2D camera = GetNode<Camera2D>("Node/Camera2D");
-		camera.Position = GetViewportRect().Size / 2;
+		camera.Position = GetViewportRect().Size / 16;
     }
 	
 	public float randomVar;

@@ -19,6 +19,7 @@ public partial class MainCharacterThingy : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		MoveAndSlide();
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.
@@ -105,7 +106,6 @@ public partial class MainCharacterThingy : CharacterBody2D
 	}
 	public override void _Process(double delta)
 	{
-		MoveAndSlide();
 		Camera2D camera = GetNode<Camera2D>("Node/Camera2D");
 		cameraVelocity += (GlobalPosition - camera.Position)/1000;
 		cameraVelocity = cameraVelocity.MoveToward(Vector2.Zero, 0.1f);

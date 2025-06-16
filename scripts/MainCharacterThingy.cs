@@ -125,11 +125,11 @@ public partial class MainCharacterThingy : CharacterBody2D
 		// GD.Print(sprite);
 		// sprite.Position += (GlobalPosition - sprite.Position)/(2 * (1/(float)delta));
 	}
-    public override void _Ready()
-    {
-        Camera2D camera = GetNode<Camera2D>("Node/Camera2D");
+	public override void _Ready()
+	{
+		Camera2D camera = GetNode<Camera2D>("Node/Camera2D");
 		camera.Position = GetViewportRect().Size / 16;
-    }
+	}
 	
 	public float randomVar;
 	private void _on_debug_timer_timeout()
